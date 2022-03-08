@@ -81,10 +81,13 @@ as
 
 begin
     -- debug
-    apex_plugin_util.debug_dynamic_action
-      ( p_plugin         => p_plugin
-      , p_dynamic_action => p_dynamic_action
-      );
+    if apex_application.g_debug and substr(:DEBUG,6) >= 6
+    then
+        apex_plugin_util.debug_dynamic_action
+          ( p_plugin         => p_plugin
+          , p_dynamic_action => p_dynamic_action
+          );
+    end if;
 
     l_items_arr := apex_string.split(l_items, ',');
 
@@ -275,10 +278,13 @@ as
 begin
 
     -- debug
-    apex_plugin_util.debug_dynamic_action
-        ( p_plugin         => p_plugin
-        , p_dynamic_action => p_dynamic_action
-        );
+    if apex_application.g_debug and substr(:DEBUG,6) >= 6
+    then
+        apex_plugin_util.debug_dynamic_action
+            ( p_plugin         => p_plugin
+            , p_dynamic_action => p_dynamic_action
+            );
+    end if;
 
     -- security checks
     if l_action != 'GET_VALUES_BY_RETURN'

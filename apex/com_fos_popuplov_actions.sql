@@ -36,10 +36,12 @@ prompt APPLICATION 102 - FOS Dev - Plugin Master
 --     PLUGIN: 134108205512926532
 --     PLUGIN: 1039471776506160903
 --     PLUGIN: 547902228942303344
+--     PLUGIN: 217651153971039957
 --     PLUGIN: 412155278231616931
---     PLUGIN: 1200087692794692554
+--     PLUGIN: 1389837954374630576
 --     PLUGIN: 461352325906078083
 --     PLUGIN: 13235263798301758
+--     PLUGIN: 216426771609128043
 --     PLUGIN: 37441962356114799
 --     PLUGIN: 1846579882179407086
 --     PLUGIN: 8354320589762683
@@ -47,6 +49,7 @@ prompt APPLICATION 102 - FOS Dev - Plugin Master
 --     PLUGIN: 106296184223956059
 --     PLUGIN: 35822631205839510
 --     PLUGIN: 2674568769566617
+--     PLUGIN: 183507938916453268
 --     PLUGIN: 14934236679644451
 --     PLUGIN: 2600618193722136
 --     PLUGIN: 2657630155025963
@@ -55,6 +58,7 @@ prompt APPLICATION 102 - FOS Dev - Plugin Master
 --     PLUGIN: 98648032013264649
 --     PLUGIN: 455014954654760331
 --     PLUGIN: 98504124924145200
+--     PLUGIN: 212503470416800524
 --   Manifest End
 --   Version:         19.2.0.00.18
 --   Instance ID:     250144500186934
@@ -159,10 +163,13 @@ wwv_flow_api.create_plugin(
 '',
 'begin',
 '    -- debug',
-'    apex_plugin_util.debug_dynamic_action',
-'      ( p_plugin         => p_plugin',
-'      , p_dynamic_action => p_dynamic_action',
-'      );',
+'    if apex_application.g_debug and substr(:DEBUG,6) >= 6',
+'    then',
+'        apex_plugin_util.debug_dynamic_action',
+'          ( p_plugin         => p_plugin',
+'          , p_dynamic_action => p_dynamic_action',
+'          );',
+'    end if;',
 '    ',
 '    l_items_arr := apex_string.split(l_items, '','');',
 '',
@@ -353,11 +360,14 @@ wwv_flow_api.create_plugin(
 'begin',
 '',
 '    -- debug',
-'    apex_plugin_util.debug_dynamic_action',
-'        ( p_plugin         => p_plugin',
-'        , p_dynamic_action => p_dynamic_action',
-'        );',
-'        ',
+'    if apex_application.g_debug and substr(:DEBUG,6) >= 6',
+'    then',
+'        apex_plugin_util.debug_dynamic_action',
+'            ( p_plugin         => p_plugin',
+'            , p_dynamic_action => p_dynamic_action',
+'            );',
+'    end if;',
+'',
 '    -- security checks',
 '    if l_action != ''GET_VALUES_BY_RETURN''',
 '    then',
@@ -393,7 +403,7 @@ wwv_flow_api.create_plugin(
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<p>The <strong>FOS - Popup LOV Actions </strong> plug-in adds the ability to dynamically set the value of a native Popup LOV item(s), <strong>including</strong> the items listed in the <i>"Additional Outputs"</i> attribute.</p>',
 '<p>Additionally it can also provide a <i>"Clear"</i> button, so you''re able to clear/reset the Popup LOV value (and all the associated items) with just one click.</p>'))
-,p_version_identifier=>'21.1.0'
+,p_version_identifier=>'21.2.0'
 ,p_about_url=>'https://fos.world'
 ,p_plugin_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '@fos-auto-return-to-page',
@@ -556,9 +566,9 @@ wwv_flow_api.g_varchar2_table(6) := '2C4F4141532C4741437A42442C49414149432C4D414
 wwv_flow_api.g_varchar2_table(7) := '4151442C4541414F432C4D414366432C4541414F462C4541414F452C4B414570422C47414149442C4541494A2C494141492C49414149452C454141492C45414147412C45414145462C4541414D472C4F414151442C494141492C4341432F422C4D41414D';
 wwv_flow_api.g_varchar2_table(8) := '452C454141514A2C4541414D452C47414364472C45414151432C454141452C49414149462C4541414B472C5541477A422C47414149462C4541414D472C534141532C6942414169424C2C53414157452C4541414D462C4F41436A442C5341474A2C4D4141';
 wwv_flow_api.g_varchar2_table(9) := '4D4D2C45414157482C454141452C3448414134484C2C4541414B2C73424145704A512C45414151432C474141472C534141532C57414568422C47414441432C4B41414B502C4B41414B412C4541414B472C554141554B2C534141532C4B41414D2C4D4143';
+
 wwv_flow_api.g_varchar2_table(10) := '7243522C4541414B532C754241434A2C494141492C49414149432C454141492C45414147412C45414145562C4541414B532C754241417542562C4F414151572C4941436A44482C4B41414B502C4B41414B412C4541414B532C754241417542432C494141';
 wwv_flow_api.g_varchar2_table(11) := '49462C534141532C4B41414D2C5341497245502C4541414D552C53414153412C53414153432C4F41414F502C4B41497643642C49414149432C4D41414D432C534141534F2C4B41414F2C53414153472C4741432F422C49414149522C454141534A2C4941';
-
 wwv_flow_api.g_varchar2_table(12) := '4149432C4D41414D432C534141534F2C4B41414B612C55414155562C474177422F432C4D41414F2C43414348572C69424178426D422C53414153432C4541414F432C4741436E43542C4B41414B552C4F41414F432C4F41415176422C4541414F77422C4F';
 wwv_flow_api.g_varchar2_table(13) := '4141512C4341432F42432C4941414B2C754241434C432C4941414B6C422C4541434C6D422C4941414B502C4741434E2C43414343512C514141532C53414153432C474147642C474146416A422C4B41414B502C4B41414B472C474141554B2C534141534F';
 wwv_flow_api.g_varchar2_table(14) := '2C4541414F532C4541414B432C6341457443442C4541414B452C6B4241416B4233422C4F414374422C494141492C49414149442C454141492C45414147412C4541414530422C4541414B452C6B4241416B4233422C4F414151442C494141492C43414368';

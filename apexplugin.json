@@ -1,6 +1,6 @@
 {
     "name":"FOS - Popup LOV Actions"
-   ,"version":"21.1.0"
+   ,"version":"21.2.0"
    ,"description":"A set of actions which enhance the native Popup LOV item.\r\n\u003Ch4\u003EFree Plug-in under MIT License\u003C\/h4\u003E\r\n\u003Cp\u003E\r\nAll FOS plug-ins are released under MIT License, which essentially means it is free for everyone to use, no matter if commercial or private use. \r\n\u003C\/p\u003E\r\n\u003Ch4\u003EOverview\u003C\/h4\u003E\r\n\u003Cp\u003EThe \u003Cstrong\u003EFOS - Popup LOV Actions \u003C\/strong\u003E plug-in adds the ability to dynamically set the value of a native Popup LOV item(s), \u003Cstrong\u003Eincluding\u003C\/strong\u003E the items listed in the \u003Ci\u003E\"Additional Outputs\"\u003C\/i\u003E attribute.\u003C\/p\u003E\r\n\u003Cp\u003EAdditionally it can also provide a \u003Ci\u003E\"Clear\"\u003C\/i\u003E button, so you\u0027re able to clear\/reset the Popup LOV value (and all the associated items) with just one click.\u003C\/p\u003E"
    ,"keywords":[
         "popuplov"
@@ -30,12 +30,15 @@
            ,"12.2.0.1"
            ,"18.0.0.0"
            ,"19.0.0.0"
+           ,"21.0.0.0"
         ]
        ,"apex":{
             "versions":[
                 "19.2.0"
                ,"20.1.0"
                ,"20.2.0"
+               ,"21.1.0"
+               ,"21.2.0"
             ]
            ,"plugin":{
                 "internalName":"COM.FOS.POPUPLOV_ACTIONS"
