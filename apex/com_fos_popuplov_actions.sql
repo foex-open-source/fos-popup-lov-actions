@@ -403,7 +403,7 @@ wwv_flow_api.create_plugin(
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<p>The <strong>FOS - Popup LOV Actions </strong> plug-in adds the ability to dynamically set the value of a native Popup LOV item(s), <strong>including</strong> the items listed in the <i>"Additional Outputs"</i> attribute.</p>',
 '<p>Additionally it can also provide a <i>"Clear"</i> button, so you''re able to clear/reset the Popup LOV value (and all the associated items) with just one click.</p>'))
-,p_version_identifier=>'21.2.0'
+,p_version_identifier=>'22.1.0'
 ,p_about_url=>'https://fos.world'
 ,p_plugin_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '@fos-auto-return-to-page',
